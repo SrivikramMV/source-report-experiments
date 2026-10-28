@@ -16,9 +16,9 @@ configs:
 
 # Source-Report Trace-Transfer Benchmark
 
-This benchmark contains 280 paired mathematical problems for studying how reasoning models describe a supplied reasoning trace while answering a question. Each pair has a source question, $Q_s$, and a conflict question, $Q_c$, that changes one numerical value. The wording and solution method remain the same, while the verified answers differ.
+This benchmark contains 280 paired mathematical problems for studying how reasoning models describe a supplied reasoning trace while answering a question. Each pair has a source question, `Q_s`, and a conflict question, `Q_c`, that changes one numerical value. The wording and solution method remain the same, while the verified answers differ.
 
-The pairs support a controlled reasoning-trace transfer experiment. A model first solves $Q_s$, producing a trace in its native reasoning format. The same trace is then supplied in two reporting requests: one with $Q_s$ and one with $Q_c$. The model is asked to quote the relevant evidence from the trace and current question separately, compare them, and solve the current question. Holding the trace fixed makes its later description directly checkable.
+The pairs support a controlled reasoning-trace transfer experiment. A model first solves `Q_s`, producing a trace in its native reasoning format. The same trace is then supplied in two reporting requests: one with `Q_s` and one with `Q_c`. The model is asked to quote the relevant evidence from the trace and current question separately, compare them, and solve the current question. Holding the trace fixed makes its later description directly checkable.
 
 ## Contents
 
@@ -50,13 +50,13 @@ Each family has five question templates with eight numerical variants per templa
 | `split` | `development` or `evaluation` |
 | `family` | Mathematical problem family |
 | `template_id` | Wording and problem subtype shared by related pairs |
-| `source_question` | Question used to generate the source reasoning trace, $Q_s$ |
+| `source_question` | Question used to generate the source reasoning trace, `Q_s` |
 | `matched_question` | The same question used in the matched reporting request |
-| `conflict_question` | Locally changed question used in the conflict request, $Q_c$ |
-| `source_answer` | Verified answer to $Q_s$ |
-| `conflict_answer` | Verified answer to $Q_c$ |
+| `conflict_question` | Locally changed question used in the conflict request, `Q_c` |
+| `source_answer` | Verified answer to `Q_s` |
+| `conflict_answer` | Verified answer to `Q_c` |
 | `changed_field` | Type of quantity changed between the questions |
-| `source_value`, `conflict_value` | Values of the changed quantity in $Q_s$ and $Q_c$ |
+| `source_value`, `conflict_value` | Values of the changed quantity in `Q_s` and `Q_c` |
 | `direction` | Whether that quantity increases or decreases |
 
 Answers and changed values are stored as strings, preserving exact integer and rational forms. The question fields are the task inputs; the answer fields provide references for evaluating generated responses.
@@ -72,7 +72,7 @@ source_answer:     x = 72
 conflict_answer:   x = 62
 ```
 
-A source trace solving the first equation can be placed before either question. Under the conflict question, an accurate report identifies 43 as the value in the trace and 38 as the value in the current question; the correct current answer is $x=62$.
+A source trace solving the first equation can be placed before either question. Under the conflict question, an accurate report identifies 43 as the value in the trace and 38 as the value in the current question; the correct current answer is `x = 62`.
 
 ## Using the benchmark
 

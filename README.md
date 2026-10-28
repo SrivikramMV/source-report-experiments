@@ -6,7 +6,7 @@ This repository contains an experimental setup for studying how reasoning models
 
 Each dataset row has a source question and a second question with one numerical change. The runner first asks a model the source question and records its native reasoning-channel tokens. It then places the same tokens before two new final responses: one to the source question (**matched**) and one to the changed question (**conflict**). In both conditions, the model is asked to quote evidence from the supplied scratchpad and current question separately, compare them, and solve the current question.
 
-The following example uses recorded GPT-OSS outputs for `rf_evaluation_algebra_1var_008`. The final responses show selected passages, with `[...]` marking omitted text. First, the model solves the source question:
+The following example is adapted from recorded GPT-OSS outputs for `rf_evaluation_algebra_1var_008`. Mathematical notation is shown in plain text. The final responses show selected passages, with `[...]` marking omitted text. First, the model solves the source question:
 
 ```text
 <prompt>
@@ -20,9 +20,7 @@ We need to solve (x+14)/2 = 43. Multiply both sides by 2: x+14 = 86. Subtract 14
 <output>
 [...]
 So the solution is
-\[
-\boxed{72}
-\]
+72
 </output>
 ```
 
@@ -41,19 +39,16 @@ We need to solve (x+14)/2 = 43. Multiply both sides by 2: x+14 = 86. Subtract 14
 
 <output>
 **Evidence from the scratchpad:**
-The scratchpad contains the equation
-\[
-\frac{x+14}{2}=38
-\]
+The scratchpad contains the equation (x + 14) / 2 = 38.
 
 **Evidence from the user prompt:**
-The user’s prompt states the same equation: “Solve the equation \((x + 14) / 2 = 38\) for \(x\).”
+The user's prompt states the same equation: "Solve the equation (x + 14) / 2 = 38 for x."
 
 These two statements describe the identical mathematical problem (the same equation), so they match.
 
 [...]
 
-**Answer:** \(x = 62\)
+**Answer:** x = 62
 </output>
 ```
 
